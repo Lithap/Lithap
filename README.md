@@ -129,7 +129,6 @@ interests:
 ### 🌙 **Active Projects**
 - 🎮 **Steam Game Hacking Tools** - Universal ESP N Much More Framework
 - 🛡️ **Anti-Cheat Bypass Research** - Next-Gen Protection Systems
-- ⚡ **Rust-Style GUI Framework** - Professional Interface Library
 - 🔬 **Quantum-Resistant Cryptography** - Post-Quantum Security Implementation
 
 </td>
