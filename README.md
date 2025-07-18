@@ -84,10 +84,7 @@ interests:
 <div align="center">
 
 
-```lua
--- 🚀 QUICK START
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Lithap/midnight-exploit/master/working-midnight.lua"))()
-```
+
 
 </div>
 
@@ -235,28 +232,12 @@ gui_design: "Premium Quality"
 -- 🚀 INSTANT DEPLOYMENT
 loadstring(game:HttpGet(
   "https://raw.githubusercontent.com/" ..
-  "Lithap/midnight-exploit/master/" ..
-  "working-midnight.lua"
 ))()
 ```
 
 
 </td>
 <td width="50%">
-
-```yaml
-target_game: "Blackhawk Rescue Mission 5"
-esp_types:
-  - "Box ESP with 2D bounding"
-  - "Tracer lines to targets"
-  - "Distance & health display"
-  - "Head direction indicators"
-  - "Skeleton & chams rendering"
-performance:
-  update_rate: "30-120 FPS"
-  anti_detection: "Advanced"
-  stealth_mode: "Enabled"
-```
 
 ### 🏆 **ACHIEVEMENTS**
 - 🛡️ **Undetected for 2+ Years**
@@ -267,7 +248,6 @@ performance:
 </tr>
 </table>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=14&duration=2000&pause=500&color=00FF41&center=true&vCenter=true&width=800&height=30&lines=🌙+MIDNIGHT+EXPLOIT+-+THE+ULTIMATE+ESP+SYSTEM+🌙;⚡+PROFESSIONAL+GRADE+•+ANTI-CHEAT+PROTECTED+•+PREMIUM+QUALITY+⚡" alt="Midnight Showcase" />
 
 </div>
 
