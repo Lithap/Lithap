@@ -39,8 +39,7 @@ specializations:
   - "Full-Stack RCE Research"
 current_focus: "Advanced Security Systems & Game Hacking"
 interests:
-  - "Roblox Exploit Development"
-  - "Steam Game Hacking (ESP/Aimbot)"
+  - "Steam Game Hacking (ESP/Aimbot/Much More)"
   - "IL2CPP Unity Game Analysis"
   - "Professional-Grade GUI Design"
 ```
@@ -63,9 +62,6 @@ interests:
 [![Quantum](https://img.shields.io/badge/Quantum_Resistant-9B59B6?style=for-the-badge&logo=quantum&logoColor=white)](https://github.com/Lithap)
 
 ### 🎮 **GAME HACKING & EXPLOITS**
-[![Roblox](https://img.shields.io/badge/Roblox_Exploits-00A2FF?style=for-the-badge&logo=roblox&logoColor=white)](https://github.com/Lithap/midnight-exploit)
-[![ESP](https://img.shields.io/badge/ESP_Systems-FF4757?style=for-the-badge&logo=target&logoColor=white)](https://github.com/Lithap/midnight-exploit)
-[![Aimbot](https://img.shields.io/badge/Aimbot_Tech-2ED573?style=for-the-badge&logo=crosshairs&logoColor=white)](https://github.com/Lithap/midnight-exploit)
 [![IL2CPP](https://img.shields.io/badge/IL2CPP_Analysis-5742D3?style=for-the-badge&logo=unity&logoColor=white)](https://github.com/Lithap)
 
 ### 💻 **PROGRAMMING LANGUAGES**
@@ -87,21 +83,11 @@ interests:
 
 <div align="center">
 
-### 🌙 **MIDNIGHT EXPLOIT** - *Premium Rust-Style ESP System*
-
-[![Midnight Exploit](https://github-readme-stats.vercel.app/api/pin/?username=Lithap&repo=midnight-exploit&theme=radical&border_color=FF6B6B&title_color=4ECDC4&icon_color=45B7D1)](https://github.com/Lithap/midnight-exploit)
 
 ```lua
 -- 🚀 QUICK START
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lithap/midnight-exploit/master/working-midnight.lua"))()
 ```
-
-**✨ PREMIUM FEATURES:**
-- 🦀 **$200 Quality Rust-Style Interface**
-- 🤖 **Advanced PVE/PVP ESP Systems**
-- 🛡️ **Anti-Cheat Protection & Bypasses**
-- ⚡ **Professional Animations & Effects**
-- 🎯 **Silent Aim & No Recoil Systems**
 
 </div>
 
@@ -144,8 +130,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Lithap/midnight-explo
 <td width="50%">
 
 ### 🌙 **Active Projects**
-- 🌙 **Midnight Exploit Enhancement** - Advanced ESP & Aimbot Systems
-- 🎮 **Steam Game Hacking Tools** - Universal ESP Framework
+- 🎮 **Steam Game Hacking Tools** - Universal ESP N Much More Framework
 - 🛡️ **Anti-Cheat Bypass Research** - Next-Gen Protection Systems
 - ⚡ **Rust-Style GUI Framework** - Professional Interface Library
 - 🔬 **Quantum-Resistant Cryptography** - Post-Quantum Security Implementation
@@ -176,11 +161,11 @@ gui_design: "Premium Quality"
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lithap)
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your-email@example.com)
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:)
 
 ### 🎥 **LATEST CONTENT**
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2500&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&height=40&lines=🔴+LIVE+CODING+SESSIONS;🎮+EXPLOIT+DEVELOPMENT+TUTORIALS;🛡️+SECURITY+RESEARCH+BREAKDOWNS;⚡+PREMIUM+GUI+DESIGN+PROCESS" alt="Content Types" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2500&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&height=40&lines=🔴+LIVE+CODING+SESSIONS;🎮+EXPLOIT+DEVELOPMENT+TUTORIALS;🛡️+SECURITY+RESEARCH+BREAKDOWNS;⚡+GUI+DESIGN+PROCESS" alt="Content Types" />
 
 </div>
 
@@ -241,11 +226,6 @@ gui_design: "Premium Quality"
 
 <div align="center">
 
-### 🌙 **Midnight Exploit - Premium ESP System**
-
-[![Watch Demo](https://img.shields.io/badge/🎬_WATCH_DEMO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
-[![Download](https://img.shields.io/badge/⬇️_DOWNLOAD-00FF41?style=for-the-badge&logo=github&logoColor=black)](https://github.com/Lithap/midnight-exploit)
-[![Documentation](https://img.shields.io/badge/📖_DOCS-4ECDC4?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Lithap/midnight-exploit#readme)
 
 <table>
 <tr>
@@ -260,17 +240,6 @@ loadstring(game:HttpGet(
 ))()
 ```
 
-**🔥 FEATURES:**
-- ✅ **Professional Rust-Style GUI**
-- ✅ **Advanced PVE/PVP ESP**
-- ✅ **Silent Aim & No Recoil**
-- ✅ **Anti-Cheat Protection**
-- ✅ **$200 Quality Interface**
-
-### 🎯 **EXPLOIT STATS**
-![GitHub Stars](https://img.shields.io/github/stars/Lithap/midnight-exploit?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/Lithap/midnight-exploit?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/Lithap/midnight-exploit?style=social)
 
 </td>
 <td width="50%">
@@ -290,9 +259,8 @@ performance:
 ```
 
 ### 🏆 **ACHIEVEMENTS**
-- 🥇 **Most Advanced Roblox ESP**
-- 🛡️ **Undetected for 6+ Months**
-- ⚡ **Premium Quality Interface**
+- 🛡️ **Undetected for 2+ Years**
+- ⚡ **High Quality Interface**
 - 🎮 **Professional Game Hacking**
 
 </td>
@@ -330,10 +298,6 @@ performance:
 
 <div align="center">
 
-<a href="https://github.com/Lithap/midnight-exploit">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Lithap&repo=midnight-exploit&theme=radical&border_color=FF6B6B&title_color=4ECDC4&icon_color=45B7D1" />
-</a>
-
 </div>
 
 ## 🎯 **SKILLS VISUALIZATION**
@@ -363,13 +327,13 @@ performance:
 <tr>
 <td align="center" width="20%">
 <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/1a797f46-efe4-41e6-9e75-5303e1bbcbfa" width="80" height="80"/>
-<br><strong>Roblox</strong>
+<br><strong>Rust</strong>
 <br><sub>ESP • Aimbot • Exploits</sub>
 </td>
 <td align="center" width="20%">
 <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/de038172-e903-4951-926c-755878deb0b4" width="80" height="80"/>
 <br><strong>Steam Games</strong>
-<br><sub>Universal ESP Framework</sub>
+<br><sub>Universal ESP N Much More Framework</sub>
 </td>
 <td align="center" width="20%">
 <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/3fb2cdf6-8920-462e-87a4-95f376a5b46f" width="80" height="80"/>
@@ -380,11 +344,6 @@ performance:
 <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/7d484dc9-68a9-4ee6-a767-aea59035c12d" width="80" height="80"/>
 <br><strong>Anti-Cheat</strong>
 <br><sub>Bypass Research</sub>
-</td>
-<td align="center" width="20%">
-<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/29fd6286-4e7b-4d33-987a-9800d2876d2c" width="80" height="80"/>
-<br><strong>GUI Design</strong>
-<br><sub>Rust-Style Interfaces</sub>
 </td>
 </tr>
 </table>
@@ -400,8 +359,6 @@ performance:
 ### 📺 **YOUTUBE CHANNEL HIGHLIGHTS**
 
 [![YouTube Video](https://img.shields.io/badge/🔴_LATEST_VIDEO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
-[![Subscribe](https://img.shields.io/badge/🔔_SUBSCRIBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
-[![Notifications](https://img.shields.io/badge/🔔_BELL_ICON-FFD700?style=for-the-badge&logo=youtube&logoColor=black)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=FF0000&center=true&vCenter=true&multiline=true&width=700&height=80&lines=🎥+EPIC+CODING+TUTORIALS;🎮+GAME+HACKING+MASTERCLASSES;🛡️+SECURITY+RESEARCH+DEEP+DIVES;⚡+PREMIUM+GUI+DEVELOPMENT" alt="YouTube Content" />
 
