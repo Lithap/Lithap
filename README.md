@@ -1,366 +1,466 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josh (Lithap) - Advanced GitHub Profile Animations</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0c0c0c 100%);
-            font-family: 'Fira Code', monospace;
-            color: #00ff41;
-            overflow-x: hidden;
-        }
-        
-        /* Matrix Rain Effect */
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        .matrix-char {
-            position: absolute;
-            color: #00ff41;
-            font-family: 'Fira Code', monospace;
-            font-size: 14px;
-            animation: matrix-fall linear infinite;
-        }
-        
-        @keyframes matrix-fall {
-            0% { transform: translateY(-100vh); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-        
-        /* Terminal Header */
-        .terminal-header {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-            background-size: 400% 400%;
-            animation: gradient-shift 3s ease infinite;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .terminal-window {
-            background: rgba(0, 0, 0, 0.9);
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            border: 2px solid #00ff41;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-        }
-        
-        .terminal-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #333;
-        }
-        
-        .terminal-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .terminal-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .close { background: #ff5f56; }
-        .minimize { background: #ffbd2e; }
-        .maximize { background: #27ca3f; }
-        
-        .terminal-title {
-            margin-left: 1rem;
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        /* Typing Animation */
-        .typing-text {
-            font-size: 1.2rem;
-            color: #00ff41;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #00ff41;
-            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: #00ff41; }
-        }
-        
-        /* Glitch Effect */
-        .glitch {
-            position: relative;
-            color: #00ff41;
-            font-size: 2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            animation: glitch 2s infinite;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .glitch::before {
-            animation: glitch-1 0.5s infinite;
-            color: #ff6b6b;
-            z-index: -1;
-        }
-        
-        .glitch::after {
-            animation: glitch-2 0.5s infinite;
-            color: #4ecdc4;
-            z-index: -2;
-        }
-        
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-        
-        @keyframes glitch-1 {
-            0%, 100% { transform: translate(0); }
-            10% { transform: translate(-2px, -2px); }
-            20% { transform: translate(2px, 2px); }
-            30% { transform: translate(-2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-        }
-        
-        @keyframes glitch-2 {
-            0%, 100% { transform: translate(0); }
-            10% { transform: translate(2px, 2px); }
-            20% { transform: translate(-2px, -2px); }
-            30% { transform: translate(2px, -2px); }
-            40% { transform: translate(-2px, 2px); }
-        }
-        
-        /* Skill Bars */
-        .skill-bar {
-            background: #333;
-            height: 20px;
-            border-radius: 10px;
-            margin: 0.5rem 0;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
-            border-radius: 10px;
-            animation: skill-load 2s ease-in-out;
-            position: relative;
-        }
-        
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: skill-shine 2s infinite;
-        }
-        
-        @keyframes skill-load {
-            from { width: 0%; }
-        }
-        
-        @keyframes skill-shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        /* Neon Glow */
-        .neon-text {
-            color: #00ff41;
-            text-shadow: 
-                0 0 5px #00ff41,
-                0 0 10px #00ff41,
-                0 0 15px #00ff41,
-                0 0 20px #00ff41;
-            animation: neon-flicker 2s infinite alternate;
-        }
-        
-        @keyframes neon-flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
+<div align="center">
 
-        /* Pulse Animation for YouTube Alert */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+<!-- YouTube Video Showcase -->
+<h2>🎬 <strong>WATCH THIS!</strong> 🎬</h2>
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .terminal-window {
-                margin: 1rem;
-                padding: 0.5rem;
-            }
+[![Watch the Video](https://img.shields.io/badge/▶️_WATCH_NOW-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=000000)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
 
-            .glitch {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Matrix Background -->
-    <div class="matrix-bg" id="matrix"></div>
-    
-    <!-- YouTube Alert -->
-    <div style="background: #ff0000; padding: 1rem; text-align: center; animation: pulse 2s infinite;">
-        <h2 style="color: white; margin: 0; font-size: 1.5rem;">🎬 WATCH THIS! 🎬</h2>
-        <a href="https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s" target="_blank" style="color: #ffff00; text-decoration: none; font-weight: bold;">
-            ▶️ CLICK HERE FOR EPIC CONTENT! ▶️
-        </a>
-    </div>
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2000&pause=500&color=FF0000&center=true&vCenter=true&width=500&height=50&lines=🔥+EPIC+CONTENT+ALERT+🔥;Click+above+to+watch!" alt="YouTube Alert" />
 
-    <!-- Terminal Header -->
-    <div class="terminal-header">
-        <h1 class="glitch neon-text" data-text="JOSH (LITHAP)">JOSH (LITHAP)</h1>
-        <p class="typing-text">T5 Cyber Engineer & L-III Architect</p>
-    </div>
-    
-    <!-- Main Terminal Window -->
-    <div class="terminal-window">
-        <div class="terminal-bar">
-            <div class="terminal-buttons">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-            </div>
-            <div class="terminal-title">josh@lithap:~/profile</div>
-        </div>
-        
-        <div class="terminal-content">
-            <p>$ whoami</p>
-            <p class="neon-text">Josh (Lithap) - T5 Cyber Engineer & L-III Architect</p>
-            <br>
-            <p>$ cat specializations.txt</p>
-            <p>🔧 Kernel Development</p>
-            <p>🖥️ UEFI/Firmware Engineering</p>
-            <p>🌐 Hypervisor Architecture</p>
-            <p>🔒 Quantum-Resistant Cryptography</p>
-            <p>🎮 Advanced Game Hacking</p>
-            <br>
-            <p>$ ./show_skills.sh</p>
-            <div style="margin: 1rem 0;">
-                <p>Kernel Development</p>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 95%;"></div>
-                </div>
-                
-                <p>Game Hacking</p>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 92%;"></div>
-                </div>
-                
-                <p>Security Research</p>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 98%;"></div>
-                </div>
-                
-                <p>GUI Design</p>
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width: 96%;"></div>
-                </div>
-            </div>
-            <br>
-            <p class="neon-text">$ echo "Building the future of cybersecurity, one exploit at a time"</p>
-            <p>Building the future of cybersecurity, one exploit at a time</p>
-            <br>
-            <p>$ █</p>
-        </div>
-    </div>
-    
-    <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrix = document.getElementById('matrix');
-            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-            
-            for (let i = 0; i < 50; i++) {
-                const char = document.createElement('div');
-                char.className = 'matrix-char';
-                char.textContent = chars[Math.floor(Math.random() * chars.length)];
-                char.style.left = Math.random() * 100 + '%';
-                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                char.style.animationDelay = Math.random() * 2 + 's';
-                matrix.appendChild(char);
-            }
-        }
-        
-        // Initialize matrix rain
-        createMatrixRain();
-        
-        // Refresh matrix characters periodically
-        setInterval(() => {
-            const chars = document.querySelectorAll('.matrix-char');
-            chars.forEach(char => {
-                if (Math.random() < 0.1) {
-                    const newChars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-                    char.textContent = newChars[Math.floor(Math.random() * newChars.length)];
-                }
-            });
-        }, 100);
-    </script>
-</body>
-</html>
+<!-- Animated Matrix Header -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,50:4ECDC4,100:45B7D1&height=120&section=header&text=JOSH%20-%20LITHAP&fontSize=30&fontColor=fff&animation=twinkling&fontAlignY=35"/>
+
+<!-- Terminal Typing Animation -->
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=00FF41&center=true&vCenter=true&multiline=true&width=600&height=100&lines=T5+Cyber+Engineer+%26+L-III+Architect;Kernel+%7C+UEFI+%7C+Hypervisor+Development;Quantum-Resistant+Systems+Specialist;Advanced+Security+Research+%26+RCE" alt="Typing SVG" />
+
+<!-- Animated Divider -->
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+
+</div>
+
+## 🚀 **ABOUT ME**
+
+```bash
+┌─[josh@lithap]─[~]
+└──╼ $ whoami
+```
+
+<img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif">
+
+```yaml
+name: "Josh (Lithap)"
+role: "T5 Cyber Engineer & L-III Architect"
+specializations:
+  - "Kernel Development"
+  - "UEFI/Firmware Engineering"
+  - "Hypervisor Architecture"
+  - "Quantum-Resistant Cryptography"
+  - "Custom Driver Development"
+  - "Full-Stack RCE Research"
+current_focus: "Advanced Security Systems & Game Hacking"
+interests:
+  - "Roblox Exploit Development"
+  - "Steam Game Hacking (ESP/Aimbot)"
+  - "IL2CPP Unity Game Analysis"
+  - "Professional-Grade GUI Design"
+```
+
+<br clear="right"/>
+
+<!-- Matrix Rain Effect -->
+<div align="center">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/d48893bd-0757-481c-8d7e-ba3e163feae7" width="100%">
+</div>
+
+## ⚡ **CORE EXPERTISE**
+
+<div align="center">
+
+### 🛡️ **SECURITY & SYSTEMS**
+[![Kernel](https://img.shields.io/badge/Kernel_Development-FF6B6B?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/Lithap)
+[![UEFI](https://img.shields.io/badge/UEFI_Firmware-4ECDC4?style=for-the-badge&logo=intel&logoColor=white)](https://github.com/Lithap)
+[![Hypervisor](https://img.shields.io/badge/Hypervisor-45B7D1?style=for-the-badge&logo=vmware&logoColor=white)](https://github.com/Lithap)
+[![Quantum](https://img.shields.io/badge/Quantum_Resistant-9B59B6?style=for-the-badge&logo=quantum&logoColor=white)](https://github.com/Lithap)
+
+### 🎮 **GAME HACKING & EXPLOITS**
+[![Roblox](https://img.shields.io/badge/Roblox_Exploits-00A2FF?style=for-the-badge&logo=roblox&logoColor=white)](https://github.com/Lithap/midnight-exploit)
+[![ESP](https://img.shields.io/badge/ESP_Systems-FF4757?style=for-the-badge&logo=target&logoColor=white)](https://github.com/Lithap/midnight-exploit)
+[![Aimbot](https://img.shields.io/badge/Aimbot_Tech-2ED573?style=for-the-badge&logo=crosshairs&logoColor=white)](https://github.com/Lithap/midnight-exploit)
+[![IL2CPP](https://img.shields.io/badge/IL2CPP_Analysis-5742D3?style=for-the-badge&logo=unity&logoColor=white)](https://github.com/Lithap)
+
+### 💻 **PROGRAMMING LANGUAGES**
+[![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/Lithap)
+[![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)](https://github.com/Lithap)
+[![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)](https://github.com/Lithap)
+[![Assembly](https://img.shields.io/badge/Assembly-654FF0?style=for-the-badge&logo=assemblyscript&logoColor=white)](https://github.com/Lithap)
+[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://github.com/Lithap)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/Lithap)
+
+</div>
+
+<!-- Animated Skills Bar -->
+<div align="center">
+<img src="https://skillicons.dev/icons?i=rust,cpp,c,python,lua,linux,windows,git,github,vscode&theme=dark" />
+</div>
+
+## 🌟 **FEATURED PROJECT**
+
+<div align="center">
+
+### 🌙 **MIDNIGHT EXPLOIT** - *Premium Rust-Style ESP System*
+
+[![Midnight Exploit](https://github-readme-stats.vercel.app/api/pin/?username=Lithap&repo=midnight-exploit&theme=radical&border_color=FF6B6B&title_color=4ECDC4&icon_color=45B7D1)](https://github.com/Lithap/midnight-exploit)
+
+```lua
+-- 🚀 QUICK START
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lithap/midnight-exploit/master/working-midnight.lua"))()
+```
+
+**✨ PREMIUM FEATURES:**
+- 🦀 **$200 Quality Rust-Style Interface**
+- 🤖 **Advanced PVE/PVP ESP Systems**
+- 🛡️ **Anti-Cheat Protection & Bypasses**
+- ⚡ **Professional Animations & Effects**
+- 🎯 **Silent Aim & No Recoil Systems**
+
+</div>
+
+<!-- GitHub Activity Graph -->
+<div align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Lithap&theme=react-dark&bg_color=20232a&hide_border=true&line=4ECDC4&point=FF6B6B&color=45B7D1" width="100%"/>
+</div>
+
+## 📊 **GITHUB STATISTICS**
+
+<div align="center">
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Lithap&show_icons=true&theme=radical&include_all_commits=true&count_private=true&border_color=FF6B6B&title_color=4ECDC4&icon_color=45B7D1"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Lithap&layout=compact&langs_count=8&theme=radical&border_color=FF6B6B&title_color=4ECDC4"/>
+</div>
+
+<!-- GitHub Streak Stats -->
+<div align="center">
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Lithap&theme=radical&border=FF6B6B&stroke=4ECDC4&ring=45B7D1&fire=FF6B6B&currStreakLabel=4ECDC4" alt="GitHub Streak"/>
+</div>
+
+## 🏆 **ACHIEVEMENTS & TROPHIES**
+
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=Lithap&theme=radical&no-frame=true&no-bg=false&margin-w=4&row=2&column=4" />
+</div>
+
+## 🔥 **CURRENT FOCUS**
+
+<div align="center">
+
+```bash
+┌─[josh@lithap]─[~/projects]
+└──╼ $ cat current_projects.txt
+```
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+### 🌙 **Active Projects**
+- 🌙 **Midnight Exploit Enhancement** - Advanced ESP & Aimbot Systems
+- 🎮 **Steam Game Hacking Tools** - Universal ESP Framework
+- 🛡️ **Anti-Cheat Bypass Research** - Next-Gen Protection Systems
+- ⚡ **Rust-Style GUI Framework** - Professional Interface Library
+- 🔬 **Quantum-Resistant Cryptography** - Post-Quantum Security Implementation
+
+</td>
+<td width="50%">
+
+### 📈 **Recent Activity**
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+### 🎯 **Expertise Areas**
+```yaml
+security_research: "Advanced"
+exploit_development: "Expert"
+kernel_programming: "Expert"
+game_hacking: "Professional"
+gui_design: "Premium Quality"
+```
+
+</td>
+</tr>
+</table>
+
+## 🌐 **CONNECT WITH ME**
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lithap)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your-email@example.com)
+
+### 🎥 **LATEST CONTENT**
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2500&pause=1000&color=FF6B6B&center=true&vCenter=true&width=600&height=40&lines=🔴+LIVE+CODING+SESSIONS;🎮+EXPLOIT+DEVELOPMENT+TUTORIALS;🛡️+SECURITY+RESEARCH+BREAKDOWNS;⚡+PREMIUM+GUI+DESIGN+PROCESS" alt="Content Types" />
+
+</div>
+
+## 🎨 **DESIGN PHILOSOPHY**
+
+<div align="center">
+
+> *"Every line of code should be a work of art, every exploit a masterpiece of engineering"*
+
+```ascii
+    ╔══════════════════════════════════════╗
+    ║  🎯 PRECISION • 🚀 INNOVATION • ⚡ SPEED  ║
+    ╚══════════════════════════════════════╝
+```
+
+### 🏗️ **Architecture Principles**
+- **🔒 Security First** - Every system designed with security as foundation
+- **⚡ Performance Optimized** - Maximum efficiency, minimal resource usage
+- **🎨 Aesthetic Excellence** - Beautiful interfaces that inspire confidence
+- **🛡️ Stealth Operations** - Undetectable by design, invisible by choice
+
+</div>
+
+## 🔬 **RESEARCH & DEVELOPMENT**
+
+<div align="center">
+
+### 🧪 **Current Research Areas**
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" width="60" height="60"/>
+<br><strong>Kernel Security</strong>
+<br><sub>Advanced rootkit detection</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/7d484dc9-68a9-4ee6-a767-aea59035c12d" width="60" height="60"/>
+<br><strong>Quantum Crypto</strong>
+<br><sub>Post-quantum algorithms</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/de038172-e903-4951-926c-755878deb0b4" width="60" height="60"/>
+<br><strong>Game Analysis</strong>
+<br><sub>Anti-cheat bypassing</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/3fb2cdf6-8920-462e-87a4-95f376a5b46f" width="60" height="60"/>
+<br><strong>GUI Innovation</strong>
+<br><sub>Next-gen interfaces</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+## 🎮 **EXPLOIT SHOWCASE**
+
+<div align="center">
+
+### 🌙 **Midnight Exploit - Premium ESP System**
+
+[![Watch Demo](https://img.shields.io/badge/🎬_WATCH_DEMO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
+[![Download](https://img.shields.io/badge/⬇️_DOWNLOAD-00FF41?style=for-the-badge&logo=github&logoColor=black)](https://github.com/Lithap/midnight-exploit)
+[![Documentation](https://img.shields.io/badge/📖_DOCS-4ECDC4?style=for-the-badge&logo=gitbook&logoColor=white)](https://github.com/Lithap/midnight-exploit#readme)
+
+<table>
+<tr>
+<td width="50%">
+
+```lua
+-- 🚀 INSTANT DEPLOYMENT
+loadstring(game:HttpGet(
+  "https://raw.githubusercontent.com/" ..
+  "Lithap/midnight-exploit/master/" ..
+  "working-midnight.lua"
+))()
+```
+
+**🔥 FEATURES:**
+- ✅ **Professional Rust-Style GUI**
+- ✅ **Advanced PVE/PVP ESP**
+- ✅ **Silent Aim & No Recoil**
+- ✅ **Anti-Cheat Protection**
+- ✅ **$200 Quality Interface**
+
+### 🎯 **EXPLOIT STATS**
+![GitHub Stars](https://img.shields.io/github/stars/Lithap/midnight-exploit?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/Lithap/midnight-exploit?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/Lithap/midnight-exploit?style=social)
+
+</td>
+<td width="50%">
+
+```yaml
+target_game: "Blackhawk Rescue Mission 5"
+esp_types:
+  - "Box ESP with 2D bounding"
+  - "Tracer lines to targets"
+  - "Distance & health display"
+  - "Head direction indicators"
+  - "Skeleton & chams rendering"
+performance:
+  update_rate: "30-120 FPS"
+  anti_detection: "Advanced"
+  stealth_mode: "Enabled"
+```
+
+### 🏆 **ACHIEVEMENTS**
+- 🥇 **Most Advanced Roblox ESP**
+- 🛡️ **Undetected for 6+ Months**
+- ⚡ **Premium Quality Interface**
+- 🎮 **Professional Game Hacking**
+
+</td>
+</tr>
+</table>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=14&duration=2000&pause=500&color=00FF41&center=true&vCenter=true&width=800&height=30&lines=🌙+MIDNIGHT+EXPLOIT+-+THE+ULTIMATE+ESP+SYSTEM+🌙;⚡+PROFESSIONAL+GRADE+•+ANTI-CHEAT+PROTECTED+•+PREMIUM+QUALITY+⚡" alt="Midnight Showcase" />
+
+</div>
+
+## 🛡️ **SECURITY PORTFOLIO**
+
+<div align="center">
+
+### 🔐 **Expertise Matrix**
+
+| Domain | Level | Technologies | Projects |
+|--------|-------|-------------|----------|
+| 🔧 **Kernel Development** | Expert | C, Assembly, WinAPI | Custom Drivers, Rootkits |
+| 🖥️ **UEFI/Firmware** | Advanced | C, Assembly, EDK II | Boot Security, Firmware Analysis |
+| 🌐 **Hypervisor Tech** | Professional | VMX, SVM, Xen | VM Escape, Hypervisor Rootkits |
+| 🔒 **Quantum Crypto** | Research | Post-Quantum Algorithms | Quantum-Resistant Systems |
+| 🎮 **Game Hacking** | Expert | Lua, C++, Reverse Engineering | ESP, Aimbot, Memory Manipulation |
+| 🎨 **GUI Design** | Premium | Rust, ImGui, Custom Frameworks | Professional Interfaces |
+
+</div>
+
+## 📈 **CONTRIBUTION GRAPH**
+
+<div align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Lithap&custom_title=Lithap's%20Contribution%20Graph&bg_color=0D1117&color=4ECDC4&line=FF6B6B&point=45B7D1&area=true&hide_border=true" width="100%"/>
+</div>
+
+## 🌟 **FEATURED REPOSITORIES**
+
+<div align="center">
+
+<a href="https://github.com/Lithap/midnight-exploit">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Lithap&repo=midnight-exploit&theme=radical&border_color=FF6B6B&title_color=4ECDC4&icon_color=45B7D1" />
+</a>
+
+</div>
+
+## 🎯 **SKILLS VISUALIZATION**
+
+<div align="center">
+
+### 🔥 **INTERACTIVE SKILL MATRIX** 🔥
+
+```ascii
+┌─────────────────────────────────────────────────────────────┐
+│                    🚀 SKILL MATRIX 🚀                      │
+├─────────────────────────────────────────────────────────────┤
+│ Kernel Development    ████████████████████████ 95%         │
+│ Game Hacking          ███████████████████████  92%         │
+│ Security Research     ████████████████████████ 98%         │
+│ Exploit Development   ███████████████████████  90%         │
+│ GUI Design            ████████████████████████ 96%         │
+│ Reverse Engineering   ██████████████████████   88%         │
+│ Anti-Cheat Bypass     ███████████████████████  94%         │
+│ Quantum Cryptography  ████████████████         75%         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🎮 **GAME HACKING SPECIALIZATIONS**
+
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/1a797f46-efe4-41e6-9e75-5303e1bbcbfa" width="80" height="80"/>
+<br><strong>Roblox</strong>
+<br><sub>ESP • Aimbot • Exploits</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/de038172-e903-4951-926c-755878deb0b4" width="80" height="80"/>
+<br><strong>Steam Games</strong>
+<br><sub>Universal ESP Framework</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/3fb2cdf6-8920-462e-87a4-95f376a5b46f" width="80" height="80"/>
+<br><strong>Unity IL2CPP</strong>
+<br><sub>Memory Analysis</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/7d484dc9-68a9-4ee6-a767-aea59035c12d" width="80" height="80"/>
+<br><strong>Anti-Cheat</strong>
+<br><sub>Bypass Research</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/29fd6286-4e7b-4d33-987a-9800d2876d2c" width="80" height="80"/>
+<br><strong>GUI Design</strong>
+<br><sub>Rust-Style Interfaces</sub>
+</td>
+</tr>
+</table>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color=45B7D1&center=true&vCenter=true&width=700&height=40&lines=🎯+PRECISION+TARGETING+•+🛡️+STEALTH+OPERATIONS+•+⚡+LIGHTNING+FAST" alt="Skills Banner" />
+
+</div>
+
+## 🎬 **CONTENT CREATOR**
+
+<div align="center">
+
+### 📺 **YOUTUBE CHANNEL HIGHLIGHTS**
+
+[![YouTube Video](https://img.shields.io/badge/🔴_LATEST_VIDEO-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
+[![Subscribe](https://img.shields.io/badge/🔔_SUBSCRIBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
+[![Notifications](https://img.shields.io/badge/🔔_BELL_ICON-FFD700?style=for-the-badge&logo=youtube&logoColor=black)](https://www.youtube.com/watch?v=pcSlowAhvUk&t=133s)
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=FF0000&center=true&vCenter=true&multiline=true&width=700&height=80&lines=🎥+EPIC+CODING+TUTORIALS;🎮+GAME+HACKING+MASTERCLASSES;🛡️+SECURITY+RESEARCH+DEEP+DIVES;⚡+PREMIUM+GUI+DEVELOPMENT" alt="YouTube Content" />
+
+### 🎯 **WHAT YOU'LL FIND ON MY CHANNEL:**
+
+<table>
+<tr>
+<td width="25%" align="center">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/1a797f46-efe4-41e6-9e75-5303e1bbcbfa" width="60" height="60"/>
+<br><strong>🎮 Game Hacking</strong>
+<br><sub>ESP Development<br>Aimbot Creation<br>Anti-Cheat Bypass</sub>
+</td>
+<td width="25%" align="center">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/7d484dc9-68a9-4ee6-a767-aea59035c12d" width="60" height="60"/>
+<br><strong>🛡️ Security Research</strong>
+<br><sub>Kernel Exploitation<br>UEFI Analysis<br>Quantum Crypto</sub>
+</td>
+<td width="25%" align="center">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/3fb2cdf6-8920-462e-87a4-95f376a5b46f" width="60" height="60"/>
+<br><strong>🎨 GUI Design</strong>
+<br><sub>Rust-Style Menus<br>Premium Interfaces<br>Animation Effects</sub>
+</td>
+<td width="25%" align="center">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-Readme/assets/74038190/de038172-e903-4951-926c-755878deb0b4" width="60" height="60"/>
+<br><strong>💻 Live Coding</strong>
+<br><sub>Real-time Development<br>Problem Solving<br>Code Reviews</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<!-- Snake Animation -->
+<div align="center">
+<img src="https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
+</div>
+
+<!-- Animated Footer -->
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,50:4ECDC4,100:45B7D1&height=120&section=footer&animation=twinkling"/>
+</div>
+
+---
+
+<div align="center">
+
+### 💫 **"Building the future of cybersecurity, one exploit at a time"** 💫
+
+[![Profile Views](https://komarev.com/ghpvc/?username=Lithap&color=4ECDC4&style=for-the-badge)](https://github.com/Lithap)
+[![GitHub Followers](https://img.shields.io/github/followers/Lithap?color=FF6B6B&style=for-the-badge&logo=github)](https://github.com/Lithap)
+[![GitHub Stars](https://img.shields.io/github/stars/Lithap?color=45B7D1&style=for-the-badge&logo=github)](https://github.com/Lithap)
+
+```ascii
+╔══════════════════════════════════════════════════════════════╗
+║  ⚡ Powered by Advanced Security Research & Professional     ║
+║     Exploit Development - Josh (Lithap) - T5 Engineer ⚡     ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+**🔥 Professional Grade • 🛡️ Security First • ⚡ Performance Optimized 🔥**
+
+</div>
