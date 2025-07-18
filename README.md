@@ -131,6 +131,8 @@ interests:
 - 🛡️ **Anti-Cheat Bypass Research** - Next-Gen Protection Systems
 - 🔬 **Quantum-Resistant Cryptography** - Post-Quantum Security Implementation
 
+
+
 </td>
 <td width="50%">
 
@@ -190,6 +192,7 @@ gui_design: "Premium Quality"
 <div align="center">
 
 ### 🧪 **Current Research Areas**
+
 
 <table>
 <tr>
