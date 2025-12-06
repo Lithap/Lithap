@@ -83,11 +83,62 @@ const OPERATOR = {
 
 ---
 
-<!-- Stats -->
+### 🏆 Achievements
+
+<div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=Lithap&theme=matrix&no-frame=true&no-bg=true&column=4&margin-w=15&margin-h=15" alt="Trophies"/>
+
+</div>
+
+---
+
+### 📊 Stats
+
 <div align="center">
 
 <img width="49%" src="https://github-readme-stats.vercel.app/api?username=Lithap&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=00FF41&icon_color=FF0000&text_color=ffffff"/>
 <img width="49%" src="https://github-readme-streak-stats.herokuapp.com?user=Lithap&theme=dark&hide_border=true&background=0d1117&ring=00FF41&fire=FF0000&currStreakLabel=00FF41"/>
+
+</div>
+
+<br>
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Lithap&custom_title=OPERATION%20TIMELINE&theme=github-dark&hide_border=true&bg_color=0d1117&color=00FF41&line=00FF41&point=FF0000&area=true&area_color=00FF41" width="100%"/>
+
+</div>
+
+---
+
+### 🎯 Current Operations
+
+<div align="center">
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    ACTIVE OPERATIONS                        │
+├─────────────────────────────────────────────────────────────┤
+│  [▓▓▓▓▓▓▓▓░░]  Kernel Rootkit Framework          80%       │
+│  [▓▓▓▓▓▓▓░░░]  Anti-Cheat Bypass Engine          70%       │
+│  [▓▓▓▓▓░░░░░]  Custom C2 Infrastructure          50%       │
+│  [▓▓▓▓▓▓▓▓▓░]  UEFI Persistence Module           90%       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+---
+
+### 🐍 Contribution Graph
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" width="100%"/>
+</picture>
 
 </div>
 
@@ -108,8 +159,10 @@ const OPERATOR = {
 
 <br>
 
-![Views](https://komarev.com/ghpvc/?username=Lithap&color=FF0000&style=flat-square&label=PROFILE+INTRUSIONS)
-![Followers](https://img.shields.io/github/followers/Lithap?style=flat-square&color=00FF41&label=FOLLOWERS)
+<!-- Stats Badges -->
+![Views](https://komarev.com/ghpvc/?username=Lithap&color=FF0000&style=for-the-badge&label=INTRUSIONS)
+![Followers](https://img.shields.io/github/followers/Lithap?style=for-the-badge&color=00FF41&label=FOLLOWERS&logo=github&logoColor=white)
+![Stars](https://img.shields.io/github/stars/Lithap?style=for-the-badge&color=00FF41&label=STARS&logo=github&logoColor=white)
 
 <br>
 
